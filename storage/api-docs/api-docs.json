@@ -1,0 +1,576 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API",
+        "description": "API Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/genres": {
+            "get": {
+                "tags": [
+                    "Local Api"
+                ],
+                "summary": "Get All Genres",
+                "operationId": "dc264da58b11271402354527a5f68d3f",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/artist": {
+            "get": {
+                "tags": [
+                    "Local Api"
+                ],
+                "summary": "Get Artist",
+                "description": "Required => token, artistId",
+                "operationId": "e088c6d3ded7fa0b1470dc9b5ccd71ad",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/artist/album": {
+            "get": {
+                "tags": [
+                    "Local Api"
+                ],
+                "summary": "Get Artist's Album",
+                "description": "Required => token, artistId",
+                "operationId": "6c76143ed3cd665757b054c8e50e55fb",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/artist/tracks": {
+            "get": {
+                "tags": [
+                    "Local Api"
+                ],
+                "summary": "Get Artist's Tracks",
+                "description": "Required => token, artistId",
+                "operationId": "95d2faf800ade4a56e060ded4d77d629",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/album": {
+            "get": {
+                "tags": [
+                    "Local Api"
+                ],
+                "summary": "Get Album",
+                "description": "Required => token, albumId",
+                "operationId": "1f38ce1c1b54f3ae6421bacca3a4405f",
+                "parameters": [
+                    {
+                        "name": "albumId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/spotify/artist": {
+            "get": {
+                "tags": [
+                    "Spotify Api"
+                ],
+                "summary": "Get Artist",
+                "description": "Required => token, artistId",
+                "operationId": "d7b9f45fb673252ccc04b76808099510",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/spotify/artist/genres": {
+            "get": {
+                "tags": [
+                    "Spotify Api"
+                ],
+                "summary": "Get Artist Genres",
+                "description": "Required => token, artistId",
+                "operationId": "7fed825efdc13215b9a717f3e36e894e",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/spotify/artist/albums": {
+            "get": {
+                "tags": [
+                    "Spotify Api"
+                ],
+                "summary": "Get Artist Albums",
+                "description": "Required => token, artistId",
+                "operationId": "4a768261ef06f2cb8bce018c7e03a789",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "market",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/spotify/album/tracks": {
+            "get": {
+                "tags": [
+                    "Spotify Api"
+                ],
+                "summary": "Get Album's Track",
+                "description": "Required => token, artistId, albumId",
+                "operationId": "b09e083b4c694fa55e64edb1178e6cdf",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "albumId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "market",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/spotify/artist/tracks": {
+            "get": {
+                "tags": [
+                    "Spotify Api"
+                ],
+                "summary": "Get Artist's Track",
+                "description": "Required => token, artistId\n\n    After fetching an album, there is a 2-second wait for the next album.",
+                "operationId": "61c9cfd8a3014c54235b614515921e18",
+                "parameters": [
+                    {
+                        "name": "artistId",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "market",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "User Op"
+                ],
+                "summary": "User Register",
+                "description": "Required => fullname, email, phone, password",
+                "operationId": "42744a1bca59abd208368d16de86d85e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "fullname": {
+                                        "description": "Ad Soyad",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "E-Posta",
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "phone": {
+                                        "description": "Telefon Numarası",
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "description": "Parola",
+                                        "type": "string",
+                                        "format": "password"
+                                    },
+                                    "profile_pic": {
+                                        "description": "Profil Resmi",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "User Op"
+                ],
+                "summary": "User Login",
+                "description": "Required => email, password",
+                "operationId": "dff25add827941151985ecb69773bab5",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/api/profile": {
+            "get": {
+                "tags": [
+                    "User Op"
+                ],
+                "summary": "User Profile",
+                "description": "Required => token",
+                "operationId": "af5f13d9537bca65175b932782d191c8",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/change/pic": {
+            "post": {
+                "tags": [
+                    "User Op"
+                ],
+                "summary": "User Profile Pic Change",
+                "description": "Required => picture",
+                "operationId": "2a3b5ce273fd7bd1e141f20a500ece98",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "profile_pic": {
+                                        "description": "Profil Resmi",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "Bearer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
