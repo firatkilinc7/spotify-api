@@ -15,6 +15,7 @@ class TrackModel extends Model
     public $incrementing = false;
 
     protected $fillable = [
+        "spotify_id",
         "album_id",
         "artist_id",
         "name",

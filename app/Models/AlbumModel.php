@@ -16,6 +16,7 @@ class AlbumModel extends Model
     public $incrementing = false;
 
     protected $fillable = [
+        "spotify_id",
         "artist_id",
         "name",
         "release_date",

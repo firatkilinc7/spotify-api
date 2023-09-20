@@ -40,9 +40,11 @@ Route::middleware("auth:api")->group(function (){
     Route::get("/spotify/album/tracks", [SpotifyServer::class, "albumTrack"]);
 
     Route::get("/genres", [ApiController::class, "localGenres"]);
+    Route::get("/artists", [ApiController::class, "localArtists"]);
     Route::get("/artist", [ApiController::class, "localArtist"]);
     Route::get("/artist/album", [ApiController::class, "localArtistAlbums"]);
     Route::get("/artist/tracks", [ApiController::class, "getArtistTracks"]);
     Route::get("/album", [ApiController::class, "localAlbum"]);
+    Route::get("/genre/albums", [ApiController::class, "localGenresAlbum"]);
 
 });

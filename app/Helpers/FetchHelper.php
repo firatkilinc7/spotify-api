@@ -64,6 +64,9 @@ function getArtist($artistId)
 }
 
 function getAlbum($artistId, $market){
+
+    getArtist($artistId);
+
     $token = getToken();
 
     $response = Http::withHeaders([
@@ -88,15 +91,19 @@ function getAlbum($artistId, $market){
             $releaseDate .= '-01';
         }
 
+
+
         AlbumModel::updateOrCreate(
             ["spotify_id" => $result["id"]],
             [
-                "artist_id" => $artistId,
-                "name"      => $result["name"],
+                "artist_id"    => $artistId,
+                "name"         => $result["name"],
                 "release_date" => $releaseDate,
                 "total_track"  => $result["total_tracks"]
             ]
         );
+
+
     }
 
     return $response;
@@ -104,6 +111,10 @@ function getAlbum($artistId, $market){
 }
 
 function getAlbumTrack($artistId, $albumId, $market){
+
+    getArtist($artistId);
+    getAlbum($artistId, $market);
+
     $token = getToken();
 
     $response = Http::withHeaders([
