@@ -6,7 +6,7 @@ use App\Models\GenreModel;
 use App\Models\ArtistModel;
 use App\Models\AlbumModel;
 use App\Models\TrackModel;
-
+use Ramsey\Uuid\Uuid;
 function getToken(){
 
     $clientId = env('SPOTIFY_CLIENT_ID');
@@ -43,10 +43,13 @@ function getArtist($artistId)
     $newArtist = ArtistModel::updateOrCreate(
         ["spotify_id"         => $spotifyId],
         [
+            "id"              => Uuid::uuid4()->toString(),
             "name"            => $artistName,
             "total_followers" => $totalFollowers,
             "popularity"      => $popularity
         ]);
+
+    
 
     $genreIds = [];
     foreach ($genres as $genre){
@@ -96,7 +99,7 @@ function getAlbum($artistId, $market){
         AlbumModel::updateOrCreate(
             ["spotify_id" => $result["id"]],
             [
-                "artist_id"    => $artistId,
+                "artist_id"    => ArtistModel::query()->where(["spotify_id" => $artistId])->first()->id,
                 "name"         => $result["name"],
                 "release_date" => $releaseDate,
                 "total_track"  => $result["total_tracks"]
@@ -131,8 +134,8 @@ function getAlbumTrack($artistId, $albumId, $market){
         TrackModel::updateOrCreate(
             ["spotify_id" => $result["id"]],
             [
-                "album_id"  => $albumId,
-                "artist_id" => $artistId,
+                "album_id"  => AlbumModel::query()->where(["spotify_id" => $albumId])->first()->id,
+                "artist_id" => ArtistModel::query()->where(["spotify_id" => $artistId])->first()->id,
                 "name"      => $result["name"],
                 "duration"  => $result["duration_ms"],
                 "explicit"  => $result["explicit"] === false ? "0" : "1"

@@ -10,12 +10,13 @@ class AlbumModel extends Model
 
     use HasFactory;
     protected $table= "albums";
-    public $primaryKey = "spotify_id";
+    public $primaryKey = "id";
 
     public $timestamps = true;
     public $incrementing = false;
 
     protected $fillable = [
+        "id",
         "spotify_id",
         "artist_id",
         "name",
@@ -24,7 +25,7 @@ class AlbumModel extends Model
     ];
 
     protected $guarded = [
-        "spotify_id",
+        "id",
     ];
 
     public function getArtist(){

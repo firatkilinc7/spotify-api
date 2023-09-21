@@ -9,12 +9,13 @@ class TrackModel extends Model
 {
     use HasFactory;
     protected $table= "tracks";
-    public $primaryKey = "spotify_id";
+    public $primaryKey = "id";
 
     public $timestamps = true;
     public $incrementing = false;
 
     protected $fillable = [
+        "id",
         "spotify_id",
         "album_id",
         "artist_id",

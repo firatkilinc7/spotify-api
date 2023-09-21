@@ -9,12 +9,14 @@ class ArtistModel extends Model
 {
     use HasFactory;
     protected $table= "artist";
-    public $primaryKey = "spotify_id";
+    public $primaryKey = "id";
 
     public $timestamps = true;
     public $incrementing = false;
 
     protected $fillable = [
+        "id",
+        "spotify_id",
         "total_followers",
         "name",
         "popularity",

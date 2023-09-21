@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,11 +14,11 @@ return new class extends Migration
     {
         Schema::create('artist_meta', function (Blueprint $table) {
             $table->id();
-            $table->string("artist_id");
-            $table->unsignedBigInteger("genre_id");
+            $table->uuid("artist_id");
+            $table->uuid("genre_id");
             $table->timestamps();
 
-            $table->foreign("artist_id")->references("spotify_id")->on("artist")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("artist_id")->references("id")->on("artist")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("genre_id")->references("id")->on("genres")->onDelete("cascade")->onUpdate("cascade");
         });
     }

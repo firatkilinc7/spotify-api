@@ -13,8 +13,10 @@ class GenreModel extends Model
 
     public $timestamps = true;
 
+    public $incrementing = false;
 
     protected $fillable = [
+        "id",
         "name",
     ];
 
