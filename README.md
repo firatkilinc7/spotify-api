@@ -30,3 +30,19 @@
         Bearer TOKEN_ADRESS
 
 </li>
+
+<hr>
+
+<li>How to run cron job?
+
+        php artisan schedule:work
+
+</li>
+
+<br>
+
+<li>How to run manuel cron job?
+
+        php artisan app:api-cron-job
+
+</li>
