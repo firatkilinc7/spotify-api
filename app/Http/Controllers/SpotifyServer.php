@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AlbumModel;
+use App\Models\ArtistModel;
+use App\Models\TrackModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class SpotifyServer extends Controller
 {
@@ -337,5 +341,37 @@ class SpotifyServer extends Controller
         }
 
         return response()->json($allTracks);
+    }
+
+    public function checkNewData() :void{
+        $apiArtist = getArtist("1hWI1MD4Pe3cgDsgk4eLfR");
+        $apiAlbums = getAlbum("1hWI1MD4Pe3cgDsgk4eLfR", "TR");
+        $allTracks = [];
+
+        foreach ($apiAlbums->json("items") as $album){
+            $responseTracks = getAlbumTrack("1hWI1MD4Pe3cgDsgk4eLfR", $album["id"], "TR");
+            $allTracks[] = $responseTracks->json("items");
+        }
+
+        $localArtist = ArtistModel::find("1hWI1MD4Pe3cgDsgk4eLfR");
+        $localAlbums = AlbumModel::query()
+            ->where(["artist_id" => "1hWI1MD4Pe3cgDsgk4eLfR"])
+            ->get();
+
+        $localTracks = TrackModel::query()
+            ->where(["artist_id" => "1hWI1MD4Pe3cgDsgk4eLfR"])
+            ->get();
+
+        if ($apiArtist->json() !== $localArtist->toArray() or $apiAlbums->json() !== $localAlbums->toArray() or $allTracks !== $localTracks->toArray()){
+
+            Mail::send([], [], function ($message) {
+                $message->to('example@example.com')
+                    ->subject('Api System | Change Report')
+                    ->setBody('Database Updated');
+            });
+
+
+        }
+
     }
 }

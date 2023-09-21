@@ -21,6 +21,8 @@ use App\Http\Controllers\ApiController;
 Route::post("/register", [UseropController::class, "registerUser"]);
 Route::post("/login", [UseropController::class, "loginUser"]);
 
+Route::get("deneme", [SpotifyServer::class, "checkNewData"]);
+
 Route::get('/test',function (){
     return response()->json([
         "error" => "Unauthorized",
